@@ -1,0 +1,6 @@
+plugin:
+    name: 'yone.discord::lang.plugin.name'
+    description: 'yone.discord::lang.plugin.description'
+    author: yone
+    icon: oc-icon-comments
+    homepage: ''

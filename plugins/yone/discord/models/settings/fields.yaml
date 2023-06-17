@@ -1,0 +1,21 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+    tokenUrl:
+        span: left
+        label: 'token'
+        type: text
+    clientId:
+        span: left
+        label: 'clientId'
+        type: text
+    clientSecret:
+        span: left
+        label: 'clientSecret'
+        type: text
+    publicKey:
+        span: left
+        label: 'publicKey'
+        type: text

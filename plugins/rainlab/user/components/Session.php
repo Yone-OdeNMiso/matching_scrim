@@ -150,7 +150,7 @@ class Session extends ComponentBase
 
         $url = post('redirect', Request::fullUrl());
 
-        Flash::success(Lang::get('rainlab.user::lang.session.logout'));
+        Flash::success('ログアウトに成功しました');
 
         return Redirect::to($url);
     }

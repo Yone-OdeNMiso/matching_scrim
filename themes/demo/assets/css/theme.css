@@ -507,16 +507,16 @@
 
 .navbar-header .navbar-brand {
   padding-left: 55px;
-  background-image: url('../images/october.png');
+  /*background-image: url('../images/october.png');*/
   background-size: auto 60%;
   background-repeat: no-repeat;
   background-position: 7px 50%;
   transition: color 0.2s ease 0.05s;
-  color: #ccc;
+  color: #ff0000;
 }
 
 .navbar-header .navbar-brand:hover {
-  color: #fff;
+  color: #000000;
 }
 
 .navbar-nav li.separator {
@@ -538,17 +538,23 @@
   transition: color 0.2s ease 0.05s;
 }
 
-.navbar-collapse:not(.in):not(.collapsing) .navbar-nav li > a:after {
-  position: absolute;
-  height: 4px;
-  bottom: -1px;
-  content: '';
-  border-radius: 4px;
-  z-index: 5;
-  width: 0;
-  left: 50%;
-  transition: all 0.2s ease 0.05s;
+.nav-login{
+  position: relative;
+  float: right;
+  margin: 0 0 0 auto;
 }
+
+/*.navbar-collapse:not(.in):not(.collapsing) .navbar-nav li > a:after {*/
+/*  position: absolute;*/
+/*  height: 4px;*/
+/*  bottom: -1px;*/
+/*  content: '';*/
+/*  border-radius: 4px;*/
+/*  z-index: 5;*/
+/*  width: 0;*/
+/*  left: 50%;*/
+/*  transition: all 0.2s ease 0.05s;*/
+/*}*/
 
 .navbar-collapse:not(.in):not(.collapsing) .navbar-nav li.active > a:after {
   width: 100% !important;
@@ -566,7 +572,7 @@
 
 .navbar-inverse .navbar-collapse:not(.in):not(.collapsing) .navbar-nav li.active > a:after,
 .navbar-inverse .navbar-collapse:not(.in):not(.collapsing) .navbar-nav li > a:hover:after {
-  background: #000000;
+  background: #ff0000;
 }
 
 .navbar-inverse .navbar-collapse:not(.in):not(.collapsing) .navbar-nav li.active > a:hover:after {

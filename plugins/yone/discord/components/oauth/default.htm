@@ -1,0 +1,6 @@
+{% if user %}
+    <a data-request="onLogout">ログアウト</a>
+    {% else %}
+        <a data-request="onStartDiscordAuth">Discordでログイン</a>
+{% endif %}
+

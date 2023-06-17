@@ -1,4 +1,9 @@
 description = "Default layout"
+
+[session]
+security = "all"
+
+[discordOAuth]
 ==
 <!DOCTYPE html>
 <html>
@@ -21,10 +26,13 @@ description = "Default layout"
   {% styles %}
 </head>
 <body>
+{% partial 'site/header' %}
+
 {% flash success %}<p data-control="flash-message" data-interval="5" class="success">{{ message }}</p>{% endflash %}
 {% flash error %}<p data-control="flash-message" data-interval="5" class="error">{{ message }}</p>{% endflash %}
 {% flash warning %}<p data-control="flash-message" data-interval="5" class="warning">{{ message }}</p>{% endflash %}
 {% flash info %}<p data-control="flash-message" data-interval="5" class="info">{{ message }}</p>{% endflash %}
+
 <!-- Content -->
 <section id="layout-content">
   {% page %}
@@ -33,6 +41,8 @@ description = "Default layout"
 
 {% framework extras %}
 {% scripts %}
+
+{% partial 'site/footer' %}
 
 </body>
 </html>
