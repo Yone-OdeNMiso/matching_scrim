@@ -1,0 +1,19 @@
+/bootstrap/compiled.php
+/vendor
+rss.xml
+composer.phar
+.DS_Store
+.idea
+.env
+.env.*.php
+.env.php
+/.htaccess
+php_errors.log
+sftp-config.json
+selenium.php
+node_modules
+/uploads
+# for netbeans
+nbproject
+waltif*
+/plugins/october/test

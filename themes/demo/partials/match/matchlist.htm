@@ -1,0 +1,11 @@
+<h1>マッチリスト</h1>
+
+
+<div id="createMatch">
+  <button data-request="onCreateMatch">試合を作成する</button>
+</div>
+<div class="match-list">
+  {% for match in matchList %}
+    <p>{{ match.id }}</p>
+  {% endfor %}
+</div>

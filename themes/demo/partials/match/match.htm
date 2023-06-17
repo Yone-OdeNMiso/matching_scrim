@@ -1,0 +1,266 @@
+<h1>対戦詳細</h1>
+{{ form_ajax('onSubmitMatchUpdate', { model: match,files:true,'data-request-flash':1 }) }}
+<div class="match-info">
+  <label for="match_date">日付:</label>
+  <input type="date" value="{{ match.match_date }}" name="match_date">
+</div>
+<div class="team-vs-area">
+  <span class="team-name">
+    <select name="team1_id" id="" class="select-search">
+      {% for team in teamList %}
+        <option value="{{ team.id }}" {% if team.id == match.team1.id %}selected{% endif %}>{{ team.name }}</option>
+      {% endfor %}
+    </select></span>&ensp;vs&ensp;<span
+    class="team-name">
+    <select name="team2_id" id="" class="select-search">
+      <option value="" selected> ---- </option>
+      {% for team in teamList %}
+        <option value="{{ team.id }}" {% if team.id == match.team2.id %}selected{% endif %}>{{ team.name }}</option>
+      {% endfor %}
+    </select></span>
+</div>
+<div class="match-info">
+  <label for="map_id">MAP:</label>
+  <select name="map_id" id="" class="select-search">
+    {% for map in mapList %}
+      <option value="{{ map.id }}" {% if map.id == match.map.id %}selected{% endif %}>{{ map.name }}</option>
+    {% endfor %}
+  </select></p>
+</div>
+<div class="match-info">
+  <label for="youtube_url">YoutubeURL:</label>
+  <input type="text" value="{{ match.youtube_url }}" name="youtube_url">
+</div>
+<div class="match-info">
+  <label for="atk_at_start">攻撃スタート:</label>
+  <select name="atk_at_start" id="" class="select-search">
+    <option value="1" {% if match.atk_at_start == 1 %}selected{% endif %}>{{ match.team1.name }}</option>
+    <option value="2" {% if match.atk_at_start == 2 %}selected{% endif %}>{{ match.team2.name }}</option>
+  </select>
+</div>
+<button type="submit">試合情報更新</button>
+{{ form_close() }}
+<div class="stats-table" id="team1Table">
+  <caption>{{ match.team1.name }} Stats</caption>
+  <table>
+    {{ form_ajax('onSubmitPlayerPosition', { model: match,files:true,'data-request-flash':1 }) }}
+    <tr>
+      <th colspan="9"></th>
+      <th colspan="6">
+        <select name="player1_id" id="">
+          {% for player in match.team1.players %}
+            <option value="{{ player.id }}"
+                    {% if player.piv.where('match_id',match.id).first().position == 1 %}selected{% endif %}>{{ player.name }}</option>
+          {% endfor %}
+        </select>
+      </th>
+      <th colspan="6">
+        <select name="player2_id" id="">
+          {% for player in match.team1.players %}
+            <option value="{{ player.id }}"
+                    {% if player.piv.where('match_id',match.id).first().position == 2 %}selected{% endif %}>{{ player.name }}</option>
+          {% endfor %}
+        </select>
+      </th>
+      <th colspan="6">
+        <select name="player3_id" id="">
+          {% for player in match.team1.players %}
+            <option value="{{ player.id }}"
+                    {% if player.piv.where('match_id',match.id).first().position == 3 %}selected{% endif %}>{{ player.name }}</option>
+          {% endfor %}
+        </select>
+      </th>
+      <th colspan="6">
+        <select name="player4_id" id="">
+          {% for player in match.team1.players %}
+            <option value="{{ player.id }}"
+                    {% if player.piv.where('match_id',match.id).first().position == 4 %}selected{% endif %}>{{ player.name }}</option>
+          {% endfor %}
+        </select>
+      </th>
+      <th colspan="6">
+        <select name="player5_id" id="">
+          {% for player in match.team1.players %}
+            <option value="{{ player.id }}"
+                    {% if player.piv.where('match_id',match.id).first().position == 5 %}selected{% endif %}>{{ player.name }}</option>
+          {% endfor %}
+        </select>
+      </th>
+      <th>
+        <button type="submit">決定</button>
+      </th>
+    </tr>
+    {{ form_close() }}
+    {{ form_ajax('onSubmitRoundStats', {model:round,files:true,'data-request-flash':1 }) }}
+    <tr>
+      <th>Round</th>
+      <th>勝敗</th>
+      <th>攻防</th>
+      <th>Site</th>
+      <th>OPK</th>
+      <th>OPD</th>
+      <th>中盤人数</th>
+      <th>OPK Time</th>
+      <th>Reset</th>
+      {% for i in 1..5 %}
+        <th>OP</th>
+        <th>Kills</th>
+        <th>Death</th>
+        <th>Refrags</th>
+        <th>Traded death</th>
+        <th>Death time</th>
+      {% endfor %}
+      <th></th>
+    </tr>
+    {% for i in 1..15 %}
+      <tr>
+        <td style="text-align: center;">
+          <input type="hidden" name="round[]" value="{{ i }}">{{ i }}
+        </td>
+        <td>
+          <select name="is_win[]" id="" class="select-search">
+            <option value="1" {% if roundList[i-1].is_win == 1 %} selected{% endif %}>◎</option>
+            <option value="0" {% if roundList[i-1].is_win != 1 %} selected{% endif %}>×</option>
+          </select>
+        </td>
+        <td>
+          <select name="is_atk[]" id="atk_select{{ i }}">
+            {% if i >=13 and roundList[i-1].is_atk is null %}
+              <option value="" selected>----</option>
+              {% set atkSelected = null %}
+              {% set defSelected = null %}
+            {% elseif (match.atk_at_start == 1 and i<=6) or (match.atk_at_start == 2 and i>=7) or roundList[i-1].is_atk == 1 %}
+              {% set atkSelected = 'selected' %}
+              {% set defSelected = null %}
+            {% else %}
+              {% set atkSelected = null %}
+              {% set defSelected = 'selected' %}
+            {% endif %}
+            <option value="1" {{ atkSelected }}>攻撃</option>
+            <option value="0" {{ defSelected }}>防衛</option>
+          </select>
+        </td>
+        <td>
+          <select name="site_id[]" id="" class="select-search">
+            <option value="" selected>----</option>
+            {% for site in match.map.sites %}
+              <option value="{{ site.id }}"
+                      {% if roundList[i-1].site_id ==  site.id %}selected{% endif %}>{{ site.name }}</option>
+            {% endfor %}
+          </select>
+        </td>
+        <td>
+          <select name="opk_player_id[]" id="" class="select-search">
+            <option value="" selected>----</option>
+            {% for player in match.players.where('team_id',match.team1.id) %}
+              <option value="{{ player.id }}"
+                      {% if roundList[i-1].opk_player_id ==  player.id %}selected{% endif %}>{{ player.name }}</option>
+            {% endfor %}
+          </select>
+        </td>
+        <td>
+          <select name="opd_player_id[]" id="" class="select-search">
+            <option value="" selected>----</option>
+            {% for player in match.players.where('team_id',match.team1.id) %}
+              <option value="{{ player.id }}"
+                      {% if roundList[i-1].opd_player_id ==  player.id %}selected{% endif %}>{{ player.name }}</option>
+            {% endfor %}
+          </select>
+        </td>
+        <td>
+          <select name="opk_after_1min_adv[]" id="" class="select-search">
+            <option value="" selected>----</option>
+            <option value="1" {% if roundList[i-1].opk_after_1min_adv ==  1 %}selected{% endif %}>有利</option>
+            <option value="0" {% if roundList[i-1].opk_after_1min_adv ==  0 %}selected{% endif %}>イーブン</option>
+            <option value="-1" {% if roundList[i-1].opk_after_1min_adv ==  -1 %}selected{% endif %}>不利</option>
+          </select>
+        </td>
+        <td>
+          <input name="op_kill_time[]" type="number" value="{{ roundList[i-1].op_kill_time }}">
+        </td>
+        <td>
+          {% if roundList[i-1].stats %}
+            <input name="is_reset[]" type="number" value="1">
+          {% else %}
+            <input name="is_reset[]" type="number" value="0">
+          {% endif %}
+        </td>
+        {% for j in 1..5 %}
+          <td>
+
+            <select name="operator_id[{{ i-1 }}][]" id="operator_select{{ i }}_{{ j }}" class="select-search">
+              <option value="" selected>----</option>
+            </select>
+          </td>
+          <script>
+              (function () {
+                  var select_operator{{ i }}_{{ j }} = document.getElementById('operator_select{{ i }}_{{ j }}');
+                  var select_atk{{ i }} = document.getElementById('atk_select{{ i }}');
+                  console.log(select_atk{{ i }}.options[select_atk{{ i }}.selectedIndex].value);
+
+                  function $setOp(is_atk, operator) {
+                      let children = operator.children
+                      while (children.length) {
+                          children[0].remove()
+                      }
+                      let op = document.createElement('option');
+                      op.text = '----'
+                      operator.appendChild(op);
+                      if (is_atk === '1') {
+                        {% for atkOp in atkOpList %}
+                          let op{{ atkOp.id }} = document.createElement('option');
+                          op{{ atkOp.id }}.value = '{{ atkOp.id }}';
+                          op{{ atkOp.id }}.text = '{{ atkOp.name }}';
+                        {% if roundList[i-1].stats[j-1].operator_id == atkOp.id %}
+                          op{{ atkOp.id }}.selected = true;
+                        {% endif %}
+                          operator.appendChild(op{{ atkOp.id }});
+                        {% endfor %}
+                      } else {
+                        {% for defOp in defOpList %}
+                          let op{{ defOp.id }} = document.createElement('option');
+                          op{{ defOp.id }}.value = '{{ defOp.id }}';
+                          op{{ defOp.id }}.text = '{{ defOp.name }}';
+                        {% if roundList[i-1].stats[j-1].operator_id == defOp.id %}
+                          op{{ defOp.id }}.selected = true;
+                        {% endif %}
+                          operator.appendChild(op{{ defOp.id }});
+                        {% endfor %}
+                      }
+                  }
+
+                  $setOp(select_atk{{ i }}.options[select_atk{{ i }}.selectedIndex].value, select_operator{{ i }}_{{ j }});
+                  select_atk{{ i }}.addEventListener('change', function (e) {
+                      $setOp(select_atk{{ i }}.options[select_atk{{ i }}.selectedIndex].value, select_operator{{ i }}_{{ j }});
+                  });
+              })();
+          </script>
+          <td>
+            <input type="number" name="kills[{{ i-1 }}][]" value="{{ roundList[i-1].stats[j-1].kills }}">
+          </td>
+          <td>
+            <input type="number" name="death[{{ i-1 }}][]" value="{{ roundList[i-1].stats[j-1].death }}">
+          </td>
+          <td>
+            <input type="number" name="refrags[{{ i-1 }}][]" value="{{ roundList[i-1].stats[j-1].refrags }}">
+          </td>
+          <td>
+            <input type="number" name="traded_death[{{ i-1 }}][]" value="{{ roundList[i-1].stats[j-1].traded_death }}">
+          </td>
+          <td>
+            <input type="number" name="death_time[{{ i-1 }}][]" value="{{ roundList[i-1].stats[j-1].death_time }}">
+          </td>
+        {% endfor %}
+      </tr>
+    {% endfor %}
+
+  </table>
+  <input type="hidden" value="{{ match.team1.id }}" name="team_id">
+  <button type="submit">ラウンド情報更新</button>
+  {{ form_close() }}
+</div>
+<script>
+    $(document).ready(function () {
+        $('.select-search').select2();
+    });
+</script>

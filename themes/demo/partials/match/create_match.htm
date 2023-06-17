@@ -1,0 +1,58 @@
+{{ form_ajax('onSubmitCreateMatch', { model: match,files:true,'data-request-flash':1 }) }}
+<div class="input-select">
+  <label for="team1Select">チーム1</label>
+  <select name="team1_id" id="team1Select">
+    {% for team in teamList %}
+      <option value="{{ team.id }}" {% if team.is_default %}selected{% endif %}>{{ team.name }}</option>
+    {% endfor %}
+  </select>
+</div>
+<div class="input-select">
+  <label for="team2Select">チーム2</label>
+  <select name="team2_id" id="team2Select">
+    <option value="" disabled selected>選択 OR なし</option>
+    {% for team in teamList %}
+      <option value="{{ team.id }}" }>{{ team.name }}</option>
+    {% endfor %}
+  </select>
+</div>
+<div class="input-select">
+  <label for="mapSelect">マップ</label>
+  <select name="map_id" id="mapSelect">
+    {% for map in mapList %}
+      <option value="{{ map.id }}" }>{{ map.name }}</option>
+    {% endfor %}
+  </select>
+</div>
+<div class="input-text">
+  <label for="youtubeInput">YoutubeURL</label>
+  <input type="text" name="youtube_url" id="youtubeInput">
+</div>
+<div class="input-select">
+  <label for="atkSelect">攻撃スタート</label>
+  <select name="atk_at_start" id="atkSelect">
+    <option value="1">チーム1</option>
+    <option value="2">チーム2</option>
+  </select>
+</div>
+<div class="input-text">
+  <label for="dateInput">日付</label>
+  <input type="date" name="match_date" id="dateInput">
+</div>
+
+<div class="button-area">
+  <button class="button-blue" type="submit">作成</button>
+</div>
+{{ form_close() }}
+<script type="text/javascript">
+    //今日の日時を表示
+    (function () {
+        var date = new Date();
+
+        var yyyy = date.getFullYear();
+        var mm = ("0" + (date.getMonth() + 1)).slice(-2);
+        var dd = ("0" + date.getDate()).slice(-2);
+
+        document.getElementById("dateInput").value = yyyy + '-' + mm + '-' + dd;
+    })();
+</script>

@@ -1,0 +1,38 @@
+description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>R6 Stats Generator - {{ this.page.title }}</title>
+  <meta name="description" content="{{ this.page.meta_description }}">
+  <meta name="title" content="{{ this.page.meta_title }}">
+  <meta name="author" content="OctoberCMS">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="OctoberCMS">
+  {# <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}"> #}
+  <link href="{{ 'assets/css/vendor.css'|theme }}" rel="stylesheet">
+  <link href="{{ 'assets/css/theme.css'|theme }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ 'assets/css/select2.min.css'|theme }}">
+  <script src="{{ 'assets/vendor/jquery.js'|theme }}"></script>
+  <script src="{{ 'assets/vendor/bootstrap.js'|theme }}"></script>
+  <script src="{{ 'assets/javascript/app.js'|theme }}"></script>
+  <script src="{{ 'assets/javascript/select2.min.js'|theme }}"></script>
+  {% styles %}
+</head>
+<body>
+{% flash success %}<p data-control="flash-message" data-interval="5" class="success">{{ message }}</p>{% endflash %}
+{% flash error %}<p data-control="flash-message" data-interval="5" class="error">{{ message }}</p>{% endflash %}
+{% flash warning %}<p data-control="flash-message" data-interval="5" class="warning">{{ message }}</p>{% endflash %}
+{% flash info %}<p data-control="flash-message" data-interval="5" class="info">{{ message }}</p>{% endflash %}
+<!-- Content -->
+<section id="layout-content">
+  {% page %}
+</section>
+<!-- Scripts -->
+
+{% framework extras %}
+{% scripts %}
+
+</body>
+</html>
