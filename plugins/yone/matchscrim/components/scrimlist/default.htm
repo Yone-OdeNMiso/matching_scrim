@@ -1,0 +1,47 @@
+{% if user %}
+    <h2>{{ team.name }}</h2>
+    <h3>募集中のScrim一覧</h3>
+    <table>
+        <tr>
+            <th>開始日時</th>
+            <th></th>
+        </tr>
+        {% for scrim in recruitingScrims %}
+            <tr>
+                <td>
+                    {% if scrim.is_asap %}
+                        決まり次第
+                    {% else %}
+                        {{ scrim.start_at|date('Y/m/d H:i') }}
+                    {% endif %}
+                </td>
+                <td>
+                    <button class="button" type="submit" data-request="onBookScrim"
+                            data-request-data="id:{{ scrim.id }}">予約
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    <h3>予約済みのScrim一覧</h3>
+    <table>
+        <tr>
+            <th>開始日時</th>
+            <th></th>
+        </tr>
+        {% for scrim in bookedScrims %}
+            <tr>
+                <td>
+                    {{ scrim.start_at|date('Y/m/d H:i') }}
+                </td>
+                <td>
+                    <button class="button" type="submit" data-request="onBookScrim"
+                            data-request-data="id:{{ scrim.id }}">予約
+                    </button>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    ログインしてください
+{% endif %}

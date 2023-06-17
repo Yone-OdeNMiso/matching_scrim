@@ -13,7 +13,7 @@ class CreateTeam extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name' => 'CreateTeam Component',
+            'name' => 'チーム作成',
             'description' => 'No description provided yet...'
         ];
     }

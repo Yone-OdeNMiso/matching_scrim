@@ -8,21 +8,23 @@ class Home extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name' => 'home Component',
+            'name' => 'TOP',
             'description' => 'No description provided yet...'
         ];
     }
 
     public function defineProperties()
     {
-        return [];
+        return [
+
+        ];
     }
 
     public function onRun()
     {
         if ($user = Auth::getUser()) {
             $this->page['user'] = $user;
-            if($user->teams) {
+            if ($user->teams) {
                 $this->page['teams'] = $user->teams;
             }
         }

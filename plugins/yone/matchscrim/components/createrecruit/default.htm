@@ -1,0 +1,28 @@
+{% if user %}
+    {% if team %}
+        <h2>{{ team.name }} Scrim募集作成</h2>
+        {{ form_ajax('onCreateScrim', { model: scrim,'data-request-flash':1 }) }}
+        <div class="input">
+            <label for="start_time">開始日時(時間無記入で決まり次第)</label>
+            <p>
+                <input id="start_time" type="date" name="start_at_date" required>
+                <input type="time" name="start_at_time">
+            </p>
+        </div>
+        <div class="input">
+            <label for="expire_in">掲載終了日時</label>
+            <p>
+                <input type="date" id="expire_in" name="expire_in_date" required>
+                <input type="time" name="expire_in_time" required>
+            </p>
+        </div>
+        <div class="button">
+            <button type="submit">作成</button>
+        </div>
+        {{ form_close() }}
+    {% else %}
+        チームに所属していません
+    {% endif %}
+{% else %}
+    ログインしてください
+{% endif %}

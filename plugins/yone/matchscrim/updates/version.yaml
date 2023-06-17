@@ -45,3 +45,15 @@
 1.0.16:
     - 'Updated table yone_matchscrim_team_membership'
     - builder_table_update_yone_matchscrim_team_membership_3.php
+1.0.17:
+    - 'Updated table yone_matchscrim_scrims'
+    - builder_table_update_yone_matchscrim_scrims.php
+1.0.18:
+    - 'Updated table yone_matchscrim_scrims'
+    - builder_table_update_yone_matchscrim_scrims_2.php
+1.0.19:
+    - 'Updated table yone_matchscrim_scrims'
+    - builder_table_update_yone_matchscrim_scrims_3.php
+1.0.20:
+    - 'Updated table yone_matchscrim_scrims'
+    - builder_table_update_yone_matchscrim_scrims_4.php
