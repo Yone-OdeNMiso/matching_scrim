@@ -1,0 +1,29 @@
+{% if user %}
+    <div class="menu">
+        <div class="create-team">
+            <a href={{ url('createteam') }}>チームを作成する</a>
+        </div>
+        <div class="search-scrim">
+            <a href={{ url('searchscrim') }}>募集を探す</a>
+        </div>
+    </div>
+    <div class="team-list">
+        <h2>所属チーム</h2>
+        {% if teams %}
+            {% for team in teams %}
+                <div class="team-name">
+                    {{ team.name }}
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href={{ url('editteam/'~team.nicename) }}>チーム編集</a></li>
+                        <li><a href={{ url('scrimlist/'~team.nicename) }}>募集一覧</a></li>
+                        <li><a href={{ url('createrecruit/'~team.nicename) }}>募集作成</a></li>
+                    </ul>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% else %}
+    ログインしてください
+{% endif %}

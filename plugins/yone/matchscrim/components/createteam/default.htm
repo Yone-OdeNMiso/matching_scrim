@@ -1,0 +1,12 @@
+{% if user %}
+    {{ form_ajax('onCreateTeam', { model: team,'data-request-flash':1 }) }}
+    <div class="input">
+        <label for="teamname">チーム名</label>
+        <input class="input-text" id="team_name" type="text" name="name" required>
+    </div>
+
+    <button type="submit">送信</button>
+    {{ form_close() }}
+{% else %}
+    ログインしてください
+{% endif %}

@@ -11,10 +11,10 @@ $this['backendUrl'] = Backend::url('/');
             <a class="navbar-brand" href="{{ 'home'|page }}">Matching Scrim</a>
         </div>
         <div class="collapse navbar-collapse navbar-main-collapse">
-            <ul class="nav navbar-nav">
-                <li class="separator hidden-xs"></li>
-                <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Home</a></li>
-            </ul>
+{#            <ul class="nav navbar-nav">#}
+{#                <li class="separator hidden-xs"></li>#}
+{#                <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Home</a></li>#}
+{#            </ul>#}
             <div class="nav-login">
                 {% if user %}
                     <p>ようこそ{{ user.name }}さん</p>

@@ -1,0 +1,47 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table yone_matchscrim_teams'
+    - builder_table_create_yone_matchscrim_teams.php
+1.0.3:
+    - 'Created table yone_matchscrim_team_users'
+    - builder_table_create_yone_matchscrim_team_users.php
+1.0.4:
+    - 'Updated table yone_matchscrim_team_users'
+    - builder_table_update_yone_matchscrim_team_members.php
+1.0.5:
+    - 'Updated table yone_matchscrim_team_members'
+    - builder_table_update_yone_matchscrim_team_members_2.php
+1.0.6:
+    - 'Updated table yone_matchscrim_teams'
+    - builder_table_update_yone_matchscrim_team_teams.php
+1.0.7:
+    - 'Updated table yone_matchscrim_team_members'
+    - builder_table_update_yone_matchscrim_team_teams_members.php
+1.0.8:
+    - 'Updated table yone_matchscrim_team_teams_members'
+    - builder_table_update_yone_matchscrim_team_membership.php
+1.0.9:
+    - 'Created table yone_matchscrim_team_members'
+    - builder_table_create_yone_matchscrim_team_members.php
+1.0.10:
+    - 'Updated table yone_matchscrim_team_members'
+    - builder_table_update_yone_matchscrim_team_members_3.php
+1.0.11:
+    - 'Created table yone_matchscrim_scrims'
+    - builder_table_create_yone_matchscrim_scrims.php
+1.0.12:
+    - 'Updated table yone_matchscrim_team_teams'
+    - builder_table_update_yone_matchscrim_team_teams_2.php
+1.0.13:
+    - 'Drop table yone_matchscrim_team_members'
+    - builder_table_delete_yone_matchscrim_team_members.php
+1.0.14:
+    - 'Updated table yone_matchscrim_team_membership'
+    - builder_table_update_yone_matchscrim_team_membership_2.php
+1.0.15:
+    - 'Update table users'
+    - migration_1015.php
+1.0.16:
+    - 'Updated table yone_matchscrim_team_membership'
+    - builder_table_update_yone_matchscrim_team_membership_3.php

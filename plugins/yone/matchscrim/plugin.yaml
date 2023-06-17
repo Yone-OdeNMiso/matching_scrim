@@ -1,0 +1,6 @@
+plugin:
+    name: 'yone.matchscrim::lang.plugin.name'
+    description: 'yone.matchscrim::lang.plugin.description'
+    author: yone
+    icon: oc-icon-gamepad
+    homepage: ''

@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use October\Rain\Auth\Models\User as UserBase;
 use RainLab\User\Models\Settings as UserSettings;
 use October\Rain\Auth\AuthException;
+use Yone\Matchscrim\Models\Team;
 
 class User extends UserBase
 {
@@ -34,7 +35,13 @@ class User extends UserBase
      * @var array Relations
      */
     public $belongsToMany = [
-        'groups' => [UserGroup::class, 'table' => 'users_groups']
+        'groups' => [UserGroup::class, 'table' => 'users_groups'],
+        'teams' => [
+            Team::class,
+            'table' => 'yone_matchscrim_team_membership',
+            'key' => 'user_id',
+            'otherKey' => 'team_id'
+        ]
     ];
 
     public $attachOne = [
