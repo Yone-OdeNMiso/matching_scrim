@@ -11,6 +11,18 @@ use Exception;
  *
  * @package october\backend
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $item
+ * @property string|null $value
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|EditorSetting newModelQuery()
+ * @method static \October\Rain\Database\Builder|EditorSetting newQuery()
+ * @method static \October\Rain\Database\Builder|EditorSetting query()
+ * @method static \Illuminate\Database\Eloquent\Builder|EditorSetting whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EditorSetting whereItem($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EditorSetting whereValue($value)
+ * @mixin \Eloquent
  */
 class EditorSetting extends Model
 {

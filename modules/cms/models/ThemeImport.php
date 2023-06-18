@@ -13,6 +13,22 @@ use Exception;
  *
  * @package october\cms
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $theme
+ * @property string|null $data
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|ThemeImport newModelQuery()
+ * @method static \October\Rain\Database\Builder|ThemeImport newQuery()
+ * @method static \October\Rain\Database\Builder|ThemeImport query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeImport whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeImport whereData($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeImport whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeImport whereTheme($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeImport whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class ThemeImport extends Model
 {

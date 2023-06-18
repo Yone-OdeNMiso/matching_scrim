@@ -9,7 +9,7 @@ class Migration1015 extends Migration
     {
         Schema::table('users', function($table)
         {
-            $table->string('in_game_id');
+            $table->string('in_game_id')->nullable();
         });
     }
     

@@ -13,6 +13,18 @@ use File as FileHelper;
  *
  * @package october\system
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $item
+ * @property string|null $value
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|MailBrandSetting newModelQuery()
+ * @method static \October\Rain\Database\Builder|MailBrandSetting newQuery()
+ * @method static \October\Rain\Database\Builder|MailBrandSetting query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MailBrandSetting whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailBrandSetting whereItem($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailBrandSetting whereValue($value)
+ * @mixin \Eloquent
  */
 class MailBrandSetting extends Model
 {

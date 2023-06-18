@@ -16,6 +16,18 @@ use Exception;
  *
  * @package october\backend
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $item
+ * @property string|null $value
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|BrandSetting newModelQuery()
+ * @method static \October\Rain\Database\Builder|BrandSetting newQuery()
+ * @method static \October\Rain\Database\Builder|BrandSetting query()
+ * @method static \Illuminate\Database\Eloquent\Builder|BrandSetting whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BrandSetting whereItem($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|BrandSetting whereValue($value)
+ * @mixin \Eloquent
  */
 class BrandSetting extends Model
 {

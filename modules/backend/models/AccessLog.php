@@ -8,6 +8,22 @@ use Request;
  *
  * @package october\backend
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property int $user_id
+ * @property string|null $ip_address
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|AccessLog newModelQuery()
+ * @method static \October\Rain\Database\Builder|AccessLog newQuery()
+ * @method static \October\Rain\Database\Builder|AccessLog query()
+ * @method static \Illuminate\Database\Eloquent\Builder|AccessLog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AccessLog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AccessLog whereIpAddress($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AccessLog whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|AccessLog whereUserId($value)
+ * @mixin \Eloquent
  */
 class AccessLog extends Model
 {

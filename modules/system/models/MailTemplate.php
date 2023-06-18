@@ -11,6 +11,32 @@ use File as FileHelper;
  *
  * @package october\system
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $code
+ * @property string|null $subject
+ * @property string|null $description
+ * @property string|null $content_html
+ * @property string|null $content_text
+ * @property int|null $layout_id
+ * @property int $is_custom
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|MailTemplate newModelQuery()
+ * @method static \October\Rain\Database\Builder|MailTemplate newQuery()
+ * @method static \October\Rain\Database\Builder|MailTemplate query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereContentHtml($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereContentText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereIsCustom($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereLayoutId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereSubject($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailTemplate whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class MailTemplate extends Model
 {

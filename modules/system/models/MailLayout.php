@@ -12,6 +12,32 @@ use File as FileHelper;
  *
  * @package october\system
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $name
+ * @property string|null $code
+ * @property string|null $content_html
+ * @property string|null $content_text
+ * @property string|null $content_css
+ * @property int $is_locked
+ * @property string|null $options
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|MailLayout newModelQuery()
+ * @method static \October\Rain\Database\Builder|MailLayout newQuery()
+ * @method static \October\Rain\Database\Builder|MailLayout query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MailLayout whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailLayout whereContentCss($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailLayout whereContentHtml($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailLayout whereContentText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailLayout whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailLayout whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailLayout whereIsLocked($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailLayout whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailLayout whereOptions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailLayout whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class MailLayout extends Model
 {

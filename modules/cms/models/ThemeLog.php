@@ -13,6 +13,35 @@ use Exception;
  *
  * @package october\cms
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string $type
+ * @property string|null $theme
+ * @property string|null $template
+ * @property string|null $old_template
+ * @property string|null $content
+ * @property string|null $old_content
+ * @property int|null $user_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read mixed $any_template
+ * @property-read mixed $theme_name
+ * @property-read mixed $type_name
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|ThemeLog newModelQuery()
+ * @method static \October\Rain\Database\Builder|ThemeLog newQuery()
+ * @method static \October\Rain\Database\Builder|ThemeLog query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeLog whereContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeLog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeLog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeLog whereOldContent($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeLog whereOldTemplate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeLog whereTemplate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeLog whereTheme($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeLog whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeLog whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeLog whereUserId($value)
+ * @mixin \Eloquent
  */
 class ThemeLog extends Model
 {

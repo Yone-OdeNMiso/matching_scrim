@@ -11,6 +11,49 @@ use October\Rain\Auth\Models\User as UserBase;
  *
  * @package october\backend
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $first_name
+ * @property string|null $last_name
+ * @property string $login
+ * @property string $email
+ * @property string $password
+ * @property string|null $activation_code
+ * @property string|null $persist_code
+ * @property string|null $reset_password_code
+ * @property string|null $permissions
+ * @property bool $is_activated
+ * @property int|null $role_id
+ * @property \Illuminate\Support\Carbon|null $activated_at
+ * @property \Illuminate\Support\Carbon|null $last_login
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property int $is_superuser
+ * @property-read string $full_name
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|User newModelQuery()
+ * @method static \October\Rain\Database\Builder|User newQuery()
+ * @method static \October\Rain\Database\Builder|User query()
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereActivatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereActivationCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereFirstName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIsActivated($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereIsSuperuser($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastLogin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLastName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereLogin($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePassword($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePermissions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User wherePersistCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereResetPasswordCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereRoleId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class User extends UserBase
 {

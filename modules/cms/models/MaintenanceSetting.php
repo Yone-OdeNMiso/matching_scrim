@@ -10,6 +10,18 @@ use ApplicationException;
  *
  * @package october\cms
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $item
+ * @property string|null $value
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|MaintenanceSetting newModelQuery()
+ * @method static \October\Rain\Database\Builder|MaintenanceSetting newQuery()
+ * @method static \October\Rain\Database\Builder|MaintenanceSetting query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MaintenanceSetting whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MaintenanceSetting whereItem($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MaintenanceSetting whereValue($value)
+ * @mixin \Eloquent
  */
 class MaintenanceSetting extends Model
 {

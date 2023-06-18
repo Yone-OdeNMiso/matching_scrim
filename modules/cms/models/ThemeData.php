@@ -12,6 +12,22 @@ use System\Models\File;
  *
  * @package october\cms
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $theme
+ * @property string|null $data
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|ThemeData newModelQuery()
+ * @method static \October\Rain\Database\Builder|ThemeData newQuery()
+ * @method static \October\Rain\Database\Builder|ThemeData query()
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeData whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeData whereData($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeData whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeData whereTheme($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|ThemeData whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class ThemeData extends Model
 {

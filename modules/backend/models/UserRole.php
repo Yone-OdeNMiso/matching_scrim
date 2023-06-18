@@ -8,6 +8,28 @@ use October\Rain\Auth\Models\Role as RoleBase;
  *
  * @package october\backend
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string $name
+ * @property string|null $code
+ * @property string|null $description
+ * @property string|null $permissions
+ * @property int $is_system
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|UserRole newModelQuery()
+ * @method static \October\Rain\Database\Builder|UserRole newQuery()
+ * @method static \October\Rain\Database\Builder|UserRole query()
+ * @method static \Illuminate\Database\Eloquent\Builder|UserRole whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserRole whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserRole whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserRole whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserRole whereIsSystem($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserRole whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserRole wherePermissions($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|UserRole whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class UserRole extends RoleBase
 {

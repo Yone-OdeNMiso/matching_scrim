@@ -34,18 +34,27 @@ class ScrimList extends ComponentBase
         $nicename = $this->property('nicename');
         if ($user = Auth::getUser()) {
             $this->page['user'] = $user;
+            if ($myTeams = $user->teams) {
+                $this->page['myTeams'] = $myTeams;
+                if ($user->teams()->where('nicename', $nicename)->get()->first()) {
+                    $this->page['isMyTeam'] = true;
+                }
+            }
         }
         if ($team = Team::where('nicename', $nicename)->get()->first()) {
             $this->page['team'] = $team;
         } else {
             App::abort(404);
         }
+
         $now = Carbon::now();
         $now = Carbon::parse($now)->timezone('JST');
         $recruitingScrims = $team->recruitingScrims()->whereNull('applied_team_id')->where('expire_in', '>=', $now)->where('start_at', '>=', $now)->get();
         $this->page['recruitingScrims'] = $recruitingScrims;
 
-        $bookedScrims = $team->recruitingScrims()->whereNotNull('applied_team_id')->where('start_at', '>=', $now)->get();
+        $bookedRecScrims = $team->recruitingScrims()->whereNotNull('applied_team_id')->where('start_at', '>=', $now)->get();
+        $bookedAppScrims = $team->appliedScrims()->whereNotNull('applied_team_id')->where('start_at', '>=', $now)->get();
+        $bookedScrims = $bookedRecScrims->mergeRecursive($bookedAppScrims);
         $this->page['bookedScrims'] = $bookedScrims;
 
     }

@@ -15,6 +15,24 @@ use DateTimeZone;
  *
  * @package october\backend
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property int $user_id
+ * @property string $namespace
+ * @property string $group
+ * @property string $item
+ * @property string|null $value
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|Preference newModelQuery()
+ * @method static \October\Rain\Database\Builder|Preference newQuery()
+ * @method static \October\Rain\Database\Builder|Preference query()
+ * @method static \Illuminate\Database\Eloquent\Builder|Preference whereGroup($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preference whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preference whereItem($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preference whereNamespace($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preference whereUserId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Preference whereValue($value)
+ * @mixin \Eloquent
  */
 class Preference extends Model
 {

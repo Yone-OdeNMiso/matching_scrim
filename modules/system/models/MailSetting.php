@@ -8,6 +8,18 @@ use Model;
  *
  * @package october\system
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $item
+ * @property string|null $value
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|MailSetting newModelQuery()
+ * @method static \October\Rain\Database\Builder|MailSetting newQuery()
+ * @method static \October\Rain\Database\Builder|MailSetting query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MailSetting whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailSetting whereItem($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailSetting whereValue($value)
+ * @mixin \Eloquent
  */
 class MailSetting extends Model
 {

@@ -7,9 +7,28 @@ use Exception;
 
 /**
  * Mail Blocker
- *
+ * 
  * A utility model that allows a user to block specific
  * mail views/templates from being sent to their address.
+ *
+ * @property int $id
+ * @property string|null $email
+ * @property string|null $template
+ * @property int|null $user_id
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|MailBlocker newModelQuery()
+ * @method static \October\Rain\Database\Builder|MailBlocker newQuery()
+ * @method static \October\Rain\Database\Builder|MailBlocker query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MailBlocker whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailBlocker whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailBlocker whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailBlocker whereTemplate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailBlocker whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailBlocker whereUserId($value)
+ * @mixin \Eloquent
  */
 class MailBlocker extends Model
 {

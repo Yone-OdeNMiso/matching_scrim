@@ -13,6 +13,28 @@ use File as FileHelper;
  *
  * @package october\system
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string|null $name
+ * @property string|null $code
+ * @property string|null $content_html
+ * @property string|null $content_text
+ * @property int $is_custom
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|MailPartial newModelQuery()
+ * @method static \October\Rain\Database\Builder|MailPartial newQuery()
+ * @method static \October\Rain\Database\Builder|MailPartial query()
+ * @method static \Illuminate\Database\Eloquent\Builder|MailPartial whereCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailPartial whereContentHtml($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailPartial whereContentText($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailPartial whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailPartial whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailPartial whereIsCustom($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailPartial whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|MailPartial whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class MailPartial extends Model
 {

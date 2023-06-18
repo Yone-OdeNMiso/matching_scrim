@@ -12,6 +12,46 @@ use Backend\Controllers\Files;
  *
  * @package october\system
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string $disk_name
+ * @property string $file_name
+ * @property int $file_size
+ * @property string $content_type
+ * @property string|null $title
+ * @property string|null $description
+ * @property string|null $field
+ * @property string|null $attachment_id
+ * @property string|null $attachment_type
+ * @property int $is_public
+ * @property int|null $sort_order
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read string $extension
+ * @property-read string $height
+ * @property-read string $path
+ * @property-read string $size
+ * @property-read string $width
+ * @property-write mixed $data
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|File newModelQuery()
+ * @method static \October\Rain\Database\Builder|File newQuery()
+ * @method static \October\Rain\Database\Builder|File query()
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereAttachmentId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereAttachmentType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereContentType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereDiskName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereField($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereFileName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereFileSize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereIsPublic($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereSortOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|File whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class File extends FileBase
 {

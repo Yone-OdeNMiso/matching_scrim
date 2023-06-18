@@ -1,28 +1,46 @@
 {% if user %}
     <h2>{{ team.name }}</h2>
     <h3>募集中のScrim一覧</h3>
-    <table>
-        <tr>
-            <th>開始日時</th>
-            <th></th>
-        </tr>
-        {% for scrim in recruitingScrims %}
+    <form>
+        {% if not isMyTeam %}
+            <label for="my_team">自分のチームを選択</label>
+            <p>
+                <select name="my_team_id" id="my_team" class="input-select">
+                    {% for team in myTeams %}
+                        <option value="{{ team.id }}">{{ team.name }}</option>¥
+                    {% endfor %}
+                </select>
+            </p>
+        {% endif %}
+        <table>
             <tr>
-                <td>
-                    {% if scrim.is_asap %}
-                        決まり次第
-                    {% else %}
-                        {{ scrim.start_at|date('Y/m/d H:i') }}
-                    {% endif %}
-                </td>
-                <td>
-                    <button class="button" type="submit" data-request="onBookScrim"
-                            data-request-data="id:{{ scrim.id }}">予約
-                    </button>
-                </td>
+                <th>開始日時</th>
+                <th></th>
             </tr>
-        {% endfor %}
-    </table>
+            {% for scrim in recruitingScrims %}
+                <tr>
+                    <td>
+                        {% if scrim.is_asap %}
+                            決まり次第
+                        {% else %}
+                            {{ scrim.start_at|date('Y/m/d H:i') }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if isMyTeam %}
+                            <button class="button" type="submit" data-request="onDeleteScrim"
+                                    data-request-data="scrim_id:{{ scrim.id }}">削除
+                            </button>
+                        {% else %}
+                            <button class="button" type="submit" data-request="onBookScrim"
+                                    data-request-data="scrim_id:{{ scrim.id }}">予約
+                            </button>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
     <h3>予約済みのScrim一覧</h3>
     <table>
         <tr>
@@ -35,9 +53,11 @@
                     {{ scrim.start_at|date('Y/m/d H:i') }}
                 </td>
                 <td>
-                    <button class="button" type="submit" data-request="onBookScrim"
-                            data-request-data="id:{{ scrim.id }}">予約
-                    </button>
+                    {% if isMyTeam %}
+                        <button class="button" type="submit" data-request="onDeleteScrim"
+                                data-request-data="scrim_id:{{ scrim.id }}">削除
+                        </button>
+                    {% endif %}
                 </td>
             </tr>
         {% endfor %}

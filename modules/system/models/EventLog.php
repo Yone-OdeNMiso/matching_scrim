@@ -10,6 +10,25 @@ use Exception;
  *
  * @package october\system
  * @author Alexey Bobkov, Samuel Georges
+ * @property int $id
+ * @property string $level
+ * @property string|null $message
+ * @property string|null $details
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read string $summary
+ * @method static \October\Rain\Database\Collection|static[] all($columns = ['*'])
+ * @method static \October\Rain\Database\Collection|static[] get($columns = ['*'])
+ * @method static \October\Rain\Database\Builder|EventLog newModelQuery()
+ * @method static \October\Rain\Database\Builder|EventLog newQuery()
+ * @method static \October\Rain\Database\Builder|EventLog query()
+ * @method static \Illuminate\Database\Eloquent\Builder|EventLog whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventLog whereDetails($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventLog whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventLog whereLevel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventLog whereMessage($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|EventLog whereUpdatedAt($value)
+ * @mixin \Eloquent
  */
 class EventLog extends Model
 {
