@@ -1,3 +1,45 @@
-<p>This is the default markup for component SearchScrim</p>
-
-<small>You can delete this file if you want</small>
+<h3>募集中のScrim一覧</h3>
+<form>
+    {% if not isMyTeam %}
+        <label for="my_team">自分のチームを選択</label>
+        <p>
+            <select name="my_team_id" id="my_team" class="input-select">
+                {% for team in myTeams %}
+                    <option value="{{ team.id }}">{{ team.name }}</option>¥
+                {% endfor %}
+            </select>
+        </p>
+    {% endif %}
+    <table>
+        <tr>
+            <th>チーム</th>
+            <th>開始日時</th>
+            <th></th>
+        </tr>
+        {% for scrim in scrims %}
+            <tr>
+                <td>
+                    <a href={{ url('scrimlist/'~scrim.recruitingTeam.nicename) }}>{{ scrim.recruitingTeam.name }}</a>
+                </td>
+                <td>
+                    {% if scrim.is_asap %}
+                        決まり次第
+                    {% else %}
+                        {{ scrim.start_at|date('Y/m/d H:i') }}
+                    {% endif %}
+                </td>
+                <td>
+                    {% if isMyTeam %}
+                        <button class="button" type="submit" data-request="onDeleteScrim"
+                                data-request-data="scrim_id:{{ scrim.id }}">削除
+                        </button>
+                    {% else %}
+                        <button class="button" type="submit" data-request="onBookScrim"
+                                data-request-data="scrim_id:{{ scrim.id }}">予約
+                        </button>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</form>

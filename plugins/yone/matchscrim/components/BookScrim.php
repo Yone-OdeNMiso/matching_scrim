@@ -51,6 +51,7 @@ class BookScrim extends ComponentBase
 
         /*同じ時間に募集していた場合削除*/
         /*TODO 試合時間が微妙にズレていた場合消えない。Scrimにかかる時間を考慮して幅をもたせる？*/
+        /*TODO 決まり次第の募集*/
         if ($myScrim = $myTeam->recruitingScrims()->where('start_at', $scrim->start_at)->get()->first()) {
             $myScrim->delete();
         }
@@ -70,7 +71,6 @@ class BookScrim extends ComponentBase
             throw new ApplicationException('正しいScrimが見つかりませんでした');
         }
         $team = Team::where('nicename', $nicename)->get()->first();
-        dump($team);
         $myTeam = $user->teams()->find($team->id);
         if (!$myTeam) {
             throw new ApplicationException('正しいチームが見つかりませんでした');
@@ -88,5 +88,8 @@ class BookScrim extends ComponentBase
         } else {
             throw new ApplicationException('正しいScrimが見つかりませんでした');
         }
+
+        Flash::success('削除に成功しました');
+        return Redirect::refresh();
     }
 }
