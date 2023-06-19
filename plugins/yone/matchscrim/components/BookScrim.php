@@ -51,6 +51,7 @@ class BookScrim extends ComponentBase
         $scrim->save();
 
         /*同じ時間に募集していた場合削除*/
+
         /*TODO 試合時間が微妙にズレていた場合消えない。Scrimにかかる時間を考慮して幅をもたせる？*/
         /*TODO 決まり次第の募集*/
         if ($myScrim = $myTeam->recruitingScrims()->where('start_at', $scrim->start_at)->get()->first()) {

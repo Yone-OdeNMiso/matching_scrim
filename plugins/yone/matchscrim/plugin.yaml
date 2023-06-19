@@ -4,3 +4,8 @@ plugin:
     author: yone
     icon: oc-icon-gamepad
     homepage: ''
+navigation:
+    Team:
+        label: Team
+        url: yone/matchscrim/team
+        icon: icon-group

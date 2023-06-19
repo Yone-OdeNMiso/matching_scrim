@@ -1,0 +1,10 @@
+name: Team
+form: $/yone/matchscrim/models/team/fields.yaml
+modelClass: Yone\Matchscrim\Models\Team
+defaultRedirect: yone/matchscrim/team
+create:
+    redirect: 'yone/matchscrim/team/update/:id'
+    redirectClose: yone/matchscrim/team
+update:
+    redirect: yone/matchscrim/team
+    redirectClose: yone/matchscrim/team

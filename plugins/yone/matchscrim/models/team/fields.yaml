@@ -1,0 +1,14 @@
+fields:
+    id:
+        label: ID
+        span: full
+        readOnly: 1
+        type: text
+    name:
+        label: チーム名
+        span: auto
+        type: text
+    discriminator:
+        label: 識別子
+        span: auto
+        type: text
