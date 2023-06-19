@@ -41,6 +41,7 @@ class CreateRecruit extends ComponentBase
         }
     }
 
+    /** Scrim募集の作成 */
     public function onCreateScrim()
     {
         /*自分のチームのページかどうか確認*/
@@ -53,6 +54,7 @@ class CreateRecruit extends ComponentBase
         }
 
         $post = post();
+        /*dateとtimeからCarbon型のTimestampを作成*/
         $data = [
             'start_at' => new Carbon($post['start_at_date'] . $post['start_at_time'] . 'JST'),
             'expire_in' => new Carbon($post['expire_in_date'] . $post['expire_in_time'] . 'JST')

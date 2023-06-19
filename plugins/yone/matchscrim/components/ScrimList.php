@@ -32,6 +32,7 @@ class ScrimList extends ComponentBase
     public function onRun()
     {
         $nicename = $this->property('nicename');
+        /*自チームかどうかの判定*/
         if ($user = Auth::getUser()) {
             $this->page['user'] = $user;
             if ($myTeams = $user->teams) {
@@ -41,21 +42,23 @@ class ScrimList extends ComponentBase
                 }
             }
         }
+        /*存在しないチームの場合404を返す*/
         if ($team = Team::where('nicename', $nicename)->get()->first()) {
             $this->page['team'] = $team;
         } else {
             App::abort(404);
         }
 
+        /*期限切れではないScrimを収集*/
         $now = Carbon::now();
         $now = Carbon::parse($now)->timezone('JST');
         $recruitingScrims = $team->recruitingScrims()->whereNull('applied_team_id')->where('expire_in', '>=', $now)->where('start_at', '>=', $now)->get();
         $this->page['recruitingScrims'] = $recruitingScrims;
 
+        /*予約済みのScrimを収集*/
         $bookedRecScrims = $team->recruitingScrims()->whereNotNull('applied_team_id')->where('start_at', '>=', $now)->get();
         $bookedAppScrims = $team->appliedScrims()->whereNotNull('applied_team_id')->where('start_at', '>=', $now)->get();
         $bookedScrims = $bookedRecScrims->mergeRecursive($bookedAppScrims);
         $this->page['bookedScrims'] = $bookedScrims;
-
     }
 }

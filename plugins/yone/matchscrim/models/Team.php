@@ -44,7 +44,7 @@ class Team extends Model
         'name.required' => '名前は必須です。'
     ];
 
-    public $belongsToMany =[
+    public $belongsToMany = [
         'members' => [
             User::class,
             'table' => 'yone_matchscrim_team_membership',
@@ -53,12 +53,16 @@ class Team extends Model
         ],
     ];
 
+    public $fillable = [
+        'name'
+    ];
+
     public $hasMany = [
-        'recruitingScrims' =>[
+        'recruitingScrims' => [
             Scrim::class,
             'key' => 'recruiting_team_id'
         ],
-        'appliedScrims' =>[
+        'appliedScrims' => [
             Scrim::class,
             'key' => 'applied_team_id'
         ]

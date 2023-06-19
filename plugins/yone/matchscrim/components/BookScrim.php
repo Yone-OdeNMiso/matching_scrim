@@ -31,6 +31,7 @@ class BookScrim extends ComponentBase
         ];
     }
 
+    /** 募集しているScrimに応募して予約する */
     public function onBookScrim()
     {
         if (!$user = Auth::getUser()) {
@@ -60,6 +61,7 @@ class BookScrim extends ComponentBase
         return Redirect::refresh();
     }
 
+    /** 自チームのScrim予約/募集を削除する */
     public function onDeleteScrim()
     {
         $nicename = $this->property('nicename');

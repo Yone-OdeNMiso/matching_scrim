@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\App;
 use Redirect;
 use Yone\Matchscrim\Models\Team;
 use Auth;
+use ValidationException;
+use Validator;
 
 class EditTeam extends ComponentBase
 {
@@ -43,6 +45,7 @@ class EditTeam extends ComponentBase
         }
     }
 
+    /*チーム情報要素の更新(現状チーム名のみ)*/
     public function onUpdateTeam()
     {
         /*自分のチームのページかどうか確認*/
@@ -50,6 +53,7 @@ class EditTeam extends ComponentBase
         if ($user = Auth::getUser()) {
             $this->page['user'] = $user;
         }
+        /** @var Team $team */
         if ($team = $user->teams()->where('nicename', $nicename)->get()->first()) {
             $this->page['team'] = $team;
         } else {
@@ -57,7 +61,13 @@ class EditTeam extends ComponentBase
         }
         $data = post();
 
-        $team->name = $data['name'];
+        /*チーム要素のバリデーション*/
+        $validator = Validator::make($data, $team->rules, $team->messages);
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
+
+        $team->fill($data);
         $team->save();
 
         Flash::success('チームを更新しました');
